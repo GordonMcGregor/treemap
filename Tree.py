@@ -1,8 +1,9 @@
 class Tree(object):
 
-	def __init__(self, parent=None, weight=None):
+	def __init__(self, parent=None, weight=None, name=None):
 		self.parent = parent
 		self.children = []
+		self.name = name
 		self.weight = weight
  		self.changed = False
 		if self.parent:
@@ -37,6 +38,19 @@ class Tree(object):
 
 	def is_leaf(self):
 		return len(self.children) == 0
+
+def make_tree(nodes, parent=None):
+
+	if not parent:
+		parent = Tree()
+
+	for node in nodes:
+		if type(node) == tuple:
+			make_tree(node, Tree(parent) )
+		else:
+			leaf = Tree(parent, node)
+	return parent
+
 
 
 if __name__ == '__main__':
