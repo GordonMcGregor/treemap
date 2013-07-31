@@ -1,4 +1,4 @@
-from Tree import Tree as t
+from Tree import HueTree as t
 from Tree import make_tree
 from TreeMap import TreeMap
 
